@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/SeperateUp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <pl.pawelkleczkowski.customgauge.CustomGauge
+            android:id="@+id/gaugeSpeed"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+
+            android:paddingTop="10dp"
+
+            app:gaugeEndValue="800"
+            app:gaugePointEndColor="@color/cyan"
+            app:gaugePointStartColor="@color/red"
+            app:gaugeStartAngle="135"
+            app:gaugeStartValue="200"
+            app:gaugeStrokeCap="ROUND"
+            app:gaugeStrokeColor="@color/silver"
+            app:gaugeStrokeWidth="10dp"
+            app:gaugeSweepAngle="270"
+            tools:layout_editor_absoluteX="135dp"
+            tools:layout_editor_absoluteY="28dp" />
+
+        <TextView
+            android:id="@+id/gaugeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gaugeSpeed"
+            android:layout_centerInParent="true"
+            android:text="Wakaranai" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/SeperateUp">
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

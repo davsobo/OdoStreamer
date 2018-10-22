@@ -276,7 +276,7 @@ public class BluetoothLeService extends Service {
             }
         }
         @Override
-        public void  onDescriptorWrite(BluetoothGatt gatt, 
+        public void  onDescriptorWrite(BluetoothGatt gatt,
         								BluetoothGattDescriptor characteristic,
         								int status){
         	System.out.println("onDescriptorWrite  "+characteristic.getUuid().toString()+" "+status);

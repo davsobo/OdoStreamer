@@ -103,7 +103,11 @@ public class LocationService extends Service implements
     @Override
     public void onLocationChanged(Location location) {
         Log.d(TAG, "onLocationChanged: function start");
-//      MainActivity.locate.dismiss();
+
+        // ADD CURRENT LOCATION TO PATH
+        dataStore.updatePath(location.getLatitude(),location.getLongitude());
+
+// MainActivity.locate.dismiss();
         Log.d(TAG, "onLocationChanged: something dismissed");
         mCurrentLocation=location;
         Log.d(TAG, "onLocationChanged: set location");

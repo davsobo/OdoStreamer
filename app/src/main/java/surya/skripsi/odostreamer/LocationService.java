@@ -105,7 +105,7 @@ public class LocationService extends Service implements
         Log.d(TAG, "onLocationChanged: function start");
 
         // ADD CURRENT LOCATION TO PATH
-        dataStore.updatePath(location.getLatitude(),location.getLongitude());
+        //dataStore.updatePath(location.getLatitude(),location.getLongitude());
 
 // MainActivity.locate.dismiss();
         Log.d(TAG, "onLocationChanged: something dismissed");

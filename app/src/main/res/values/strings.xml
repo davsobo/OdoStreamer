@@ -20,4 +20,6 @@
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
     <string name="action_settings">Action settings</string>
+    <string name="current_speed">Current Speed</string>
+    <string name="avg_speed">Average Speed</string>
 </resources>

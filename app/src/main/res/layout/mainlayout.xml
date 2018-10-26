@@ -9,6 +9,7 @@
         android:id="@+id/SeperateUp"
         android:layout_width="match_parent"
         android:layout_height="300dp">
+
         <pl.pawelkleczkowski.customgauge.CustomGauge
             android:id="@+id/gaugeSpeed"
             android:layout_width="140dp"
@@ -22,8 +23,8 @@
             android:paddingTop="10dp"
 
             app:gaugeEndValue="800"
-            app:gaugePointEndColor="@color/cyan"
-            app:gaugePointStartColor="@color/red"
+            app:gaugePointEndColor="@color/red"
+            app:gaugePointStartColor="@color/cyan"
             app:gaugeStartAngle="135"
             app:gaugeStartValue="200"
             app:gaugeStrokeCap="ROUND"
@@ -41,13 +42,104 @@
             android:layout_centerInParent="true"
             android:text="Wakaranai" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <TableLayout
+        android:id="@+id/SeperateBottom"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/SeperateUp">
 
-    </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/flavor1"
+                android:layout_marginStart="24dp"
+                android:layout_column="1"
+                android:layout_marginEnd="23dp"
+                android:text="@string/current_speed"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/flavor2"
+                android:layout_width="211dp"
+                android:layout_column="3"
+                android:paddingStart="20dp"
+                android:text="@string/avg_speed"
+                android:textSize="25dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_column="1"
+                android:background="#FF909090" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_column="3"
+                android:background="#FF909090" />
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/speedDisplay"
+                android:layout_column="1"
+                android:gravity="center"
+                android:text="200 Kmph"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_column="2">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/avgSDisplay"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:text="100Kmph"
+                android:textSize="25dp"
+                />
+
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+    </TableLayout>
 
 
 </RelativeLayout>

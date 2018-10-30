@@ -12,8 +12,8 @@
 
         <pl.pawelkleczkowski.customgauge.CustomGauge
             android:id="@+id/gaugeSpeed"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:paddingBottom="10dp"
@@ -44,7 +44,7 @@
     </RelativeLayout>
 
     <TableLayout
-        android:id="@+id/SeperateBottom"
+        android:id="@+id/InformativeOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/SeperateUp">
@@ -62,10 +62,10 @@
             <TextView
                 android:id="@+id/flavor1"
                 android:layout_column="1"
-                android:layout_marginEnd="23dp"
-                android:layout_marginStart="24dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
                 android:text="@string/current_speed"
-                android:textSize="25dp" />
+                android:textSize="@dimen/LayoutContentSize" />
 
             <LinearLayout
                 android:layout_width="1dp"
@@ -76,46 +76,29 @@
 
             <TextView
                 android:id="@+id/flavor2"
-                android:layout_width="211dp"
                 android:layout_column="3"
-                android:paddingStart="20dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
                 android:text="@string/avg_speed"
-                android:textSize="25dp" />
+                android:textSize="@dimen/LayoutContentSize" />
 
         </TableRow>
 
-        <TableRow
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dip"
-                android:layout_column="1"
-                android:background="#FF909090" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dip"
-                android:layout_column="3"
-                android:background="#FF909090" />
-
-            <LinearLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent">
-
-                <View style="@style/Divider" />
-            </LinearLayout>
-        </TableRow>
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
 
         <TableRow>
 
             <TextView
                 android:id="@+id/speedDisplay"
                 android:layout_column="1"
+                android:layout_weight="0.5"
                 android:gravity="center"
                 android:text="200 Kmph"
-                android:textSize="25dp" />
+                android:textSize="@dimen/LayoutContentSize" />
 
             <LinearLayout
                 android:layout_width="1dp"
@@ -128,9 +111,10 @@
             <TextView
                 android:id="@+id/avgSDisplay"
                 android:layout_column="3"
-                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:gravity="center"
                 android:text="100Kmph"
-                android:textSize="25dp" />
+                android:textSize="@dimen/LayoutContentSize" />
 
         </TableRow>
 
@@ -141,5 +125,177 @@
             android:background="#FF909090" />
     </TableLayout>
 
+    <TableLayout
+        android:id="@+id/InformativeTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InformativeOne">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="Yaw"
+                android:textSize="@dimen/LayoutContentSize" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_column="2">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_column="3"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="Pitch"
+                android:textSize="@dimen/LayoutContentSize" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_column="2">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_column="5"
+                android:layout_weight="0.34"
+                android:gravity="center"
+                android:text="Roll"
+                android:textSize="@dimen/LayoutContentSize" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="50°"
+                android:textSize="@dimen/LayoutContentSize" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_column="2">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_column="3"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="55°"
+                android:textSize="@dimen/LayoutContentSize" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_column="2">
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_column="5"
+                android:layout_weight="0.34"
+                android:gravity="center"
+                android:text="60°"
+                android:textSize="@dimen/LayoutContentSize" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/InformativeTri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InformativeTwo">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="G-Force"
+                android:textSize="@dimen/LayoutContentSize" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="@dimen/LayoutContentSize" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_column="1"
+            android:background="#FF909090" />
+
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/InformativeTri"
+        android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/mainBtnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:text="Start" />
+
+        <Button
+            android:id="@+id/mainBtnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_toRightOf="@id/mainBtnStart"
+            android:text="Stop" />
+    </RelativeLayout>
+    
 </RelativeLayout>

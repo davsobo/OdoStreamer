@@ -56,7 +56,7 @@ public class dataStore {
         return String.valueOf(speed) + " " + unit;
     }
 
-    static public void printToFile(String data, Context context) {
+    static public void printToFile(String data) {
 
         String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/dataSkripsi";
 //        try {

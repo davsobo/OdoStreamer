@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     boolean testing = true;
     Thread speedMeter;
     int topSpeed = 220;
-    Context activityContext;
     private ServiceConnection sc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
             bindService();
         gauge = findViewById(R.id.gaugeSpeed);
         gauge.setEndValue(700);
-        activityContext = this;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         dataStore.filename = sdf.format(new Date())+".csv";
 
@@ -137,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                                     long now = System.currentTimeMillis();
                                     gauge.setValue(setMeter(i));
                                     Log.d("RUN THREAD", "run: "+i+", meter: "+setMeter(i));
-                                    dataStore.printToFile(String.valueOf(i),activityContext);
+                                    dataStore.printToFile(String.valueOf(i));
                                     CSpeed.setText(dataStore.addKmphToSpeedometer(i));
                                     totalSpeed += i;
                                     totalDataSpeed++;

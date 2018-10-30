@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 /**
@@ -113,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
             bindService();
         gauge = findViewById(R.id.gaugeSpeed);
         gauge.setEndValue(700);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        dataStore.filename = sdf.format(new Date())+".csv";
 
         CSpeed = findViewById(R.id.speedDisplay);
         AvgSpeed = findViewById(R.id.avgSDisplay);
@@ -130,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                                     long now = System.currentTimeMillis();
                                     gauge.setValue(setMeter(i));
                                     Log.d("RUN THREAD", "run: "+i+", meter: "+setMeter(i));
+                                    dataStore.printToFile(String.valueOf(i));
                                     CSpeed.setText(dataStore.addKmphToSpeedometer(i));
                                     totalSpeed += i;
                                     totalDataSpeed++;

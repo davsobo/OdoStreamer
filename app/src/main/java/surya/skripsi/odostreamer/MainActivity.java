@@ -2,7 +2,6 @@ package surya.skripsi.odostreamer;
 
 import android.app.ProgressDialog;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.location.LocationManager;
@@ -31,12 +30,16 @@ public class MainActivity extends AppCompatActivity {
     static TextView dist, time, speed;
     Button start, pause, stop;
     static long startTime, endTime;
+    private TextView CSpeed;
+    private TextView AvgSpeed;
     ImageView image, help;
     static ProgressDialog locate;
     static int p = 0;
     private CustomGauge gauge;
     int i;
-    int speedNow = 0;
+    int totalSpeed = 0;
+    int totalDataSpeed = 0;
+    int speedNow = 120;
     boolean testing = true;
     Thread speedMeter;
     int topSpeed = 220;
@@ -110,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainlayout);
-        dataStore.printToFile("LoremIPsum LALALALALA", this);
         if (status == false)
             bindService();
         gauge = findViewById(R.id.gaugeSpeed);
@@ -118,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         activityContext = this;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         dataStore.filename = sdf.format(new Date())+".csv";
+
+        CSpeed = findViewById(R.id.speedDisplay);
+        AvgSpeed = findViewById(R.id.avgSDisplay);
+//        CSpeed.setText(dataStore.addKmphToSpeedometer(speedNow));
+//        gauge.setValue(setMeter(speedNow));
+
         speedMeter = new Thread() {
             public void run() {
                 if (testing) {
@@ -126,9 +134,14 @@ public class MainActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    long now = System.currentTimeMillis();
                                     gauge.setValue(setMeter(i));
                                     Log.d("RUN THREAD", "run: "+i+", meter: "+setMeter(i));
                                     dataStore.printToFile(String.valueOf(i),activityContext);
+                                    CSpeed.setText(dataStore.addKmphToSpeedometer(i));
+                                    totalSpeed += i;
+                                    totalDataSpeed++;
+                                    AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalSpeed/totalDataSpeed));
                                 }
                             });
                             Thread.sleep(50);

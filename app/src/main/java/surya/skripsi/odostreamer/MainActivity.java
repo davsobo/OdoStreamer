@@ -2,6 +2,7 @@ package surya.skripsi.odostreamer;
 
 import android.app.ProgressDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.location.LocationManager;
@@ -12,6 +13,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     boolean testing = true;
     Thread speedMeter;
     int topSpeed = 220;
+    Context activityContext;
     private ServiceConnection sc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -105,11 +110,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainlayout);
+        dataStore.printToFile("LoremIPsum LALALALALA", this);
         if (status == false)
             bindService();
         gauge = findViewById(R.id.gaugeSpeed);
         gauge.setEndValue(700);
-
+        activityContext = this;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        dataStore.filename = sdf.format(new Date())+".csv";
         speedMeter = new Thread() {
             public void run() {
                 if (testing) {
@@ -120,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
                                     gauge.setValue(setMeter(i));
                                     Log.d("RUN THREAD", "run: "+i+", meter: "+setMeter(i));
+                                    dataStore.printToFile(String.valueOf(i),activityContext);
                                 }
                             });
                             Thread.sleep(50);

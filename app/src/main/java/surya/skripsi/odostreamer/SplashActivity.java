@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SplashActivity extends BlunoLibrary {
 
     private Button buttonScan;
@@ -53,6 +56,8 @@ public class SplashActivity extends BlunoLibrary {
                 buttonScanOnClickProcess();                                       //Alert Dialog for selecting the BLE device
             }
         });
+
+
     }
 
     protected void onResume() {

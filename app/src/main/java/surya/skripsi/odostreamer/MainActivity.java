@@ -301,7 +301,7 @@ public class MainActivity extends BlunoLibrary {
             Log.d("totalDistance", "processDistance: "+totalDistance);
             gauge.setValue(setMeter(Math.round(spd)));
             CSpeed.setText(dataStore.addKmphToSpeedometer((int)spd));
-            AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalDistance / (beforeTime / 1000)));
+            AvgSpeed.setText(dataStore.addKmphToSpeedometer((int)totalDistance / (beforeTime / 1000)));
         }
     }
 }

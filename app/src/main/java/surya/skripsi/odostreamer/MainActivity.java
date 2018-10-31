@@ -35,12 +35,12 @@ public class MainActivity extends BlunoLibrary {
     LocationManager locationManager;
     static TextView dist, time, speed;
     static long startTime, endTime;
-    private TextView CSpeed;
-    private TextView AvgSpeed;
+    static private TextView CSpeed;
+    static private TextView AvgSpeed;
     ImageView image, help;
     static ProgressDialog locate;
     static int p = 0;
-    private CustomGauge gauge;
+    static private CustomGauge gauge;
     private Button buttonScan, buttonStop, buttonStart;
     private boolean startStatus = false;
     int i;
@@ -49,7 +49,10 @@ public class MainActivity extends BlunoLibrary {
     int speedNow = 120;
     boolean testing = true;
     Thread speedMeter;
-    int topSpeed = 220;
+    static int topSpeed = 220;
+
+    static double totalDistance;
+    static long totalTime, beforeTime;
     private ServiceConnection sc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -81,7 +84,7 @@ public class MainActivity extends BlunoLibrary {
         status = false;
     }
 
-    int setMeter(int now) {
+    static int setMeter(long now) {
         double later = 200.0;
         later += 600.0 * now / topSpeed;
         return (int) later;
@@ -172,6 +175,8 @@ public class MainActivity extends BlunoLibrary {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 startStatus = true;
+                beforeTime = System.currentTimeMillis();
+                totalDistance = 0;
             }
         });
         buttonStop = (Button) findViewById(R.id.mainBtnStop);
@@ -271,7 +276,15 @@ public class MainActivity extends BlunoLibrary {
             dataStore.dataToText += theString + '\n';
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
-        Log.d("Serial Recieved", theString);
+        Log.d("Serial Received", theString);
 
+    }
+
+    public static void processSpeed(double spd) {
+        totalTime += beforeTime - System.currentTimeMillis();
+        totalDistance += spd /(beforeTime/1000);
+        gauge.setValue(setMeter(Math.round(spd)));
+        CSpeed.setText(dataStore.addKmphToSpeedometer(spd));
+        AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalDistance / totalTime));
     }
 }

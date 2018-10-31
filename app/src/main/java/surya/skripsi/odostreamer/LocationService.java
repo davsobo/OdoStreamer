@@ -123,7 +123,8 @@ public class LocationService extends Service implements
         Log.d(TAG, "onLocationChanged: else end");
 //      updateUI();
         Log.d(TAG, "onLocationChanged: update ui");
-        speed=location.getSpeed()*18/5;
+        speed=location.getSpeed()*36/10;
+        MainActivity.processSpeed(speed);
         Log.d(TAG, "onLocationChanged: speed set");
     }
 

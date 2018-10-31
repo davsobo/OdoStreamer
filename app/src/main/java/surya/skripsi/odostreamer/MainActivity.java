@@ -279,6 +279,9 @@ public class MainActivity extends BlunoLibrary {
         if(startStatus){
             dataStore.dataToText += theString + '\n';
             List<String> rawData = Arrays.asList(theString.split(","));
+            for (int i = 0; i < rawData.size(); i++){
+                Log.d("rawData", "onSerialReceived: "+ rawData.get(i));
+            }
             Yaw.setText(rawData.get(3)+"°");
             Pitch.setText(rawData.get(4)+"°");
             Roll.setText(rawData.get(5)+"°");

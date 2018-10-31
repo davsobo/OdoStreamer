@@ -31,7 +31,7 @@ public class dataStore {
     static public GoogleMap gMap;
     static public ArrayList<LatLng> path;
     static public String unit = "Kmph";
-    ArrayList<String> dataToText;
+    static public String dataToText;
     public static String filename;
 
     static public void updatePath(double latitude, double longitude) {

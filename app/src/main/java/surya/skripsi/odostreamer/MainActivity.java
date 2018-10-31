@@ -34,7 +34,6 @@ public class MainActivity extends BlunoLibrary {
     static boolean status;
     LocationManager locationManager;
     static TextView dist, time, speed;
-    Button start, pause, stop;
     static long startTime, endTime;
     private TextView CSpeed;
     private TextView AvgSpeed;
@@ -42,7 +41,8 @@ public class MainActivity extends BlunoLibrary {
     static ProgressDialog locate;
     static int p = 0;
     private CustomGauge gauge;
-    private Button buttonScan;
+    private Button buttonScan, buttonStop, buttonStart;
+    private boolean startStatus = false;
     int i;
     int totalSpeed = 0;
     int totalDataSpeed = 0;
@@ -165,6 +165,26 @@ public class MainActivity extends BlunoLibrary {
                 buttonScanOnClickProcess();                                       //Alert Dialog for selecting the BLE device
             }
         });
+        buttonStart = (Button) findViewById(R.id.mainBtnStart);
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                startStatus = true;
+            }
+        });
+        buttonStop = (Button) findViewById(R.id.mainBtnStop);
+        buttonStop.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                startStatus = false;
+                dataStore.printToFile(dataStore.dataToText);
+            }
+        });
+
 
 
         if (status == false)
@@ -247,6 +267,11 @@ public class MainActivity extends BlunoLibrary {
     @Override
     public void onSerialReceived(String theString) {                            //Once connection data received, this function will be called
         // TODO Auto-generated method stub
+        if(startStatus){
+            dataStore.dataToText += theString + '\n';
+        }
+        Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
+        Log.d("Serial Recieved", theString);
 
     }
 }

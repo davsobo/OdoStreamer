@@ -20,7 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
@@ -53,6 +55,7 @@ public class MainActivity extends BlunoLibrary {
 
     static double totalDistance;
     static long totalTime, beforeTime;
+    static TextView Yaw, Pitch, Roll, GForce;
     private ServiceConnection sc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -198,6 +201,10 @@ public class MainActivity extends BlunoLibrary {
 
         CSpeed = findViewById(R.id.speedDisplay);
         AvgSpeed = findViewById(R.id.avgSDisplay);
+        Yaw = findViewById(R.id.yawValue);
+        Pitch = findViewById(R.id.pitchValue);
+        Roll = findViewById(R.id.rollValue);
+        GForce = findViewById(R.id.GValue);
 //        CSpeed.setText(dataStore.addKmphToSpeedometer(speedNow));
 //        gauge.setValue(setMeter(speedNow));
 
@@ -271,6 +278,12 @@ public class MainActivity extends BlunoLibrary {
         // TODO Auto-generated method stub
         if(startStatus){
             dataStore.dataToText += theString + '\n';
+            List<String> rawData = Arrays.asList(theString.split(","));
+            Yaw.setText(rawData.get(6)+"°");
+            Pitch.setText(rawData.get(7)+"°");
+            Roll.setText(rawData.get(8)+"°");
+            double G = (Integer.parseInt(rawData.get(3)) * Integer.parseInt(rawData.get(3)) + Integer.parseInt(rawData.get(4)) * Integer.parseInt(rawData.get(4)));
+            GForce.setText(String.valueOf(G));
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
         Log.d("Serial Received", theString);

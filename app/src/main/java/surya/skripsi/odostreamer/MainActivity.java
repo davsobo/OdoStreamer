@@ -204,46 +204,46 @@ public class MainActivity extends BlunoLibrary {
 //        CSpeed.setText(dataStore.addKmphToSpeedometer(speedNow));
 //        gauge.setValue(setMeter(speedNow));
 
-        speedMeter = new Thread() {
-            public void run() {
-                if (testing) {
-                    for (i = 0; i <= topSpeed; i++) {
-                        try {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    long now = System.currentTimeMillis();
-                                    gauge.setValue(setMeter(i));
-                                    Log.d("RUN THREAD", "run: " + i + ", meter: " + setMeter(i));
-                                    dataStore.printToFile(String.valueOf(i));
-                                    CSpeed.setText(dataStore.addKmphToSpeedometer(i));
-                                    totalSpeed += i;
-                                    totalDataSpeed++;
-                                    AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalSpeed / totalDataSpeed));
-                                }
-                            });
-                            Thread.sleep(50);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } else {
-                    try {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                gauge.setValue(speedNow);
-                            }
-                        });
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        };
-        speedMeter.start();
+//        speedMeter = new Thread() {
+//            public void run() {
+//                if (testing) {
+//                    for (i = 0; i <= topSpeed; i++) {
+//                        try {
+//                            runOnUiThread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    long now = System.currentTimeMillis();
+//                                    gauge.setValue(setMeter(i));
+//                                    Log.d("RUN THREAD", "run: " + i + ", meter: " + setMeter(i));
+//                                    dataStore.printToFile(String.valueOf(i));
+//                                    CSpeed.setText(dataStore.addKmphToSpeedometer(i));
+//                                    totalSpeed += i;
+//                                    totalDataSpeed++;
+//                                    AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalSpeed / totalDataSpeed));
+//                                }
+//                            });
+//                            Thread.sleep(50);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                } else {
+//                    try {
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                gauge.setValue(speedNow);
+//                            }
+//                        });
+//                        Thread.sleep(50);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//            }
+//        };
+//        speedMeter.start();
     }
 
     @Override

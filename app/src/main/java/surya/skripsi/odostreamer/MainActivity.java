@@ -42,7 +42,7 @@ public class MainActivity extends BlunoLibrary {
     static int p = 0;
     static private CustomGauge gauge;
     private Button buttonScan, buttonStop, buttonStart;
-    private boolean startStatus = false;
+    private static boolean startStatus = false;
     int i;
     int totalSpeed = 0;
     int totalDataSpeed = 0;
@@ -281,10 +281,12 @@ public class MainActivity extends BlunoLibrary {
     }
 
     public static void processSpeed(double spd) {
-        totalTime += beforeTime - System.currentTimeMillis();
-        totalDistance += spd /(beforeTime/1000);
-        gauge.setValue(setMeter(Math.round(spd)));
-        CSpeed.setText(dataStore.addKmphToSpeedometer(spd));
-        AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalDistance / totalTime));
+        if(startStatus) {
+            totalTime += beforeTime - System.currentTimeMillis();
+            totalDistance += spd / (beforeTime / 1000);
+            gauge.setValue(setMeter(Math.round(spd)));
+            CSpeed.setText(dataStore.addKmphToSpeedometer(spd));
+            AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalDistance / totalTime));
+        }
     }
 }

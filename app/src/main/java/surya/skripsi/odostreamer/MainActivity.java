@@ -282,11 +282,11 @@ public class MainActivity extends BlunoLibrary {
 
     public static void processSpeed(double spd) {
         if(startStatus) {
-            totalTime += beforeTime - System.currentTimeMillis();
+            totalTime += System.currentTimeMillis() - beforeTime;
             totalDistance += spd / (beforeTime / 1000);
             gauge.setValue(setMeter(Math.round(spd)));
-            CSpeed.setText(dataStore.addKmphToSpeedometer(spd));
-            AvgSpeed.setText(dataStore.addKmphToSpeedometer(totalDistance / totalTime));
+            CSpeed.setText(dataStore.addKmphToSpeedometer((int)spd));
+            AvgSpeed.setText(dataStore.addKmphToSpeedometer((int)(totalDistance / totalTime)));
         }
     }
 }

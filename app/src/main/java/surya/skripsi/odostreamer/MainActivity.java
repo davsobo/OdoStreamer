@@ -279,10 +279,10 @@ public class MainActivity extends BlunoLibrary {
         if(startStatus){
             dataStore.dataToText += theString + '\n';
             List<String> rawData = Arrays.asList(theString.split(","));
-            Yaw.setText(rawData.get(6)+"°");
-            Pitch.setText(rawData.get(7)+"°");
-            Roll.setText(rawData.get(8)+"°");
-            double G = (Integer.parseInt(rawData.get(3)) * Integer.parseInt(rawData.get(3)) + Integer.parseInt(rawData.get(4)) * Integer.parseInt(rawData.get(4)));
+            Yaw.setText(rawData.get(4)+"°");
+            Pitch.setText(rawData.get(5)+"°");
+            Roll.setText(rawData.get(6)+"°");
+            double G = (Integer.parseInt(rawData.get(1)) * Integer.parseInt(rawData.get(1)) + Integer.parseInt(rawData.get(2)) * Integer.parseInt(rawData.get(2)));
             GForce.setText(String.valueOf(G));
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));

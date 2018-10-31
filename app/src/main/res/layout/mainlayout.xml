@@ -104,7 +104,7 @@
                 android:layout_column="1"
                 android:layout_weight="0.5"
                 android:gravity="center"
-                android:text="0 Kmph"
+                android:text="200 Kmph"
                 android:textSize="@dimen/LayoutContentSize" />
 
             <LinearLayout
@@ -122,7 +122,7 @@
                 android:layout_column="3"
                 android:layout_weight="0.5"
                 android:gravity="center"
-                android:text="0Kmph"
+                android:text="100Kmph"
                 android:textSize="@dimen/LayoutContentSize" />
 
         </TableRow>
@@ -204,7 +204,7 @@
                 android:layout_column="1"
                 android:layout_weight="0.33"
                 android:gravity="center"
-                android:text="0°"
+                android:text="50°"
                 android:textSize="@dimen/LayoutContentSize" />
 
             <LinearLayout
@@ -219,7 +219,7 @@
                 android:layout_column="3"
                 android:layout_weight="0.33"
                 android:gravity="center"
-                android:text="0°"
+                android:text="55°"
                 android:textSize="@dimen/LayoutContentSize" />
 
             <LinearLayout
@@ -234,7 +234,7 @@
                 android:layout_column="5"
                 android:layout_weight="0.34"
                 android:gravity="center"
-                android:text="0°"
+                android:text="60°"
                 android:textSize="@dimen/LayoutContentSize" />
         </TableRow>
 
@@ -283,7 +283,7 @@
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="0"
+                android:text="1"
                 android:textSize="@dimen/LayoutContentSize" />
         </TableRow>
 

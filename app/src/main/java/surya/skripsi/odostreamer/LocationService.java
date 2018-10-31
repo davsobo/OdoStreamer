@@ -108,24 +108,26 @@ public class LocationService extends Service implements
         //dataStore.updatePath(location.getLatitude(),location.getLongitude());
 
 // MainActivity.locate.dismiss();
-        Log.d(TAG, "onLocationChanged: something dismissed");
+//        Log.d(TAG, "onLocationChanged: something dismissed");
         mCurrentLocation=location;
-        Log.d(TAG, "onLocationChanged: set location");
+//        Log.d(TAG, "onLocationChanged: set location");
         if(lStart==null) {
-            Log.d(TAG, "onLocationChanged: if start");
+//            Log.d(TAG, "onLocationChanged: if start");
             lStart = mCurrentLocation;
-            Log.d(TAG, "onLocationChanged: loc start");
+//            Log.d(TAG, "onLocationChanged: loc start");
             lEnd=mCurrentLocation;
-            Log.d(TAG, "onLocationChanged: loc end");
+//            Log.d(TAG, "onLocationChanged: loc end");
         }
         else
             lEnd=mCurrentLocation;
-        Log.d(TAG, "onLocationChanged: else end");
+//        Log.d(TAG, "onLocationChanged: else end");
 //      updateUI();
-        Log.d(TAG, "onLocationChanged: update ui");
+//        Log.d(TAG, "onLocationChanged: update ui");
         speed=location.getSpeed()*36/10;
         MainActivity.processSpeed(speed);
-        Log.d(TAG, "onLocationChanged: speed set");
+        Log.d(TAG, "speed: " + speed);
+        Log.d(TAG, "hasSpeed: " + location.hasSpeed());
+//        Log.d(TAG, "onLocationChanged: speed set");
     }
 
     @Override

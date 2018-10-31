@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:src="@mipmap/OdoLogo" />
+        android:src="@color/cyan" />
 
     <TextView
         android:id="@+id/textView"

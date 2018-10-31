@@ -34,16 +34,15 @@ public class SplashActivity extends BlunoLibrary {
 
         //Permission Checker
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED){
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
                 Toast.makeText(this, "The permission to get BLE location data is required", Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
-        }else{
+        } else {
             Toast.makeText(this, "Location permissions already granted", Toast.LENGTH_SHORT).show();
         }
-
 
 
         buttonScan = (Button) findViewById(R.id.buttonScan);                      //initial the button for scanning the BLE device
@@ -56,8 +55,6 @@ public class SplashActivity extends BlunoLibrary {
                 buttonScanOnClickProcess();                                       //Alert Dialog for selecting the BLE device
             }
         });
-
-
     }
 
     protected void onResume() {

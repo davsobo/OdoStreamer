@@ -57,9 +57,12 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:weightSum="1">
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/flavor1"
                 android:layout_column="1"
                 android:layout_weight="0.5"
@@ -75,6 +78,8 @@
             </LinearLayout>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/flavor2"
                 android:layout_column="3"
                 android:layout_weight="0.5"
@@ -93,6 +98,8 @@
         <TableRow>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/speedDisplay"
                 android:layout_column="1"
                 android:layout_weight="0.5"
@@ -109,6 +116,8 @@
             </LinearLayout>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/avgSDisplay"
                 android:layout_column="3"
                 android:layout_weight="0.5"
@@ -140,6 +149,8 @@
         <TableRow>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="0.33"
                 android:gravity="center"
@@ -155,6 +166,8 @@
             </LinearLayout>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:layout_weight="0.33"
                 android:gravity="center"
@@ -170,6 +183,8 @@
             </LinearLayout>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_weight="0.34"
                 android:gravity="center"
@@ -245,6 +260,8 @@
         <TableRow>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -261,6 +278,8 @@
         <TableRow>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -286,14 +305,20 @@
             android:id="@+id/mainBtnStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
+            android:layout_marginStart="50dp"
             android:text="Start" />
-
+        <Button
+            android:id="@+id/buttonScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_toRightOf="@id/mainBtnStop"
+            android:text="Scan" />
         <Button
             android:id="@+id/mainBtnStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="30dp"
             android:layout_toRightOf="@id/mainBtnStart"
             android:text="Stop" />
     </RelativeLayout>

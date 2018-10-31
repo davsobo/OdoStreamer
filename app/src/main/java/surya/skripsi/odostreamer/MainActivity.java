@@ -174,24 +174,20 @@ public class MainActivity extends BlunoLibrary {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                startStatus = true;
-                beforeTime = System.currentTimeMillis();
-                totalDistance = 0;
+                if(startStatus){
+                    startStatus = false;
+                    dataStore.printToFile(dataStore.dataToText);
+                    buttonStart.setText("Start");
+                }
+                else {
+                    startStatus = true;
+                    beforeTime = System.currentTimeMillis();
+                    totalDistance = 0;
+                    buttonStart.setText("Stop");
+                }
+
             }
         });
-        buttonStop = (Button) findViewById(R.id.mainBtnStop);
-        buttonStop.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                startStatus = false;
-                dataStore.printToFile(dataStore.dataToText);
-            }
-        });
-
-
-
         if (status == false)
             bindService();
         gauge = findViewById(R.id.gaugeSpeed);

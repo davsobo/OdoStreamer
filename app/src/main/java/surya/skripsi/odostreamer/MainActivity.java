@@ -282,11 +282,11 @@ public class MainActivity extends BlunoLibrary {
             for (int i = 0; i < rawData.size(); i++){
                 Log.d("rawData", "onSerialReceived: "+ rawData.get(i));
             }
-            Yaw.setText(rawData.get(3)+"°");
-            Pitch.setText(rawData.get(4)+"°");
-            Roll.setText(rawData.get(5)+"°");
-            double G = (Integer.parseInt(rawData.get(0)) * Integer.parseInt(rawData.get(0)) + Integer.parseInt(rawData.get(1)) * Integer.parseInt(rawData.get(1)));
-            GForce.setText(String.valueOf(G));
+            Yaw.setText(rawData.get(0)+"°");
+            Pitch.setText(rawData.get(1)+"°");
+            Roll.setText(rawData.get(2)+"°");
+//            double G = Double.parseDouble(rawData.get(0);
+//            GForce.setText(String.valueOf(G));
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
         Log.d("Serial Received", theString);

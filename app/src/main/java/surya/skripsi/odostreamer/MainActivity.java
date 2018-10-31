@@ -178,6 +178,7 @@ public class MainActivity extends BlunoLibrary {
                     startStatus = false;
                     dataStore.printToFile(dataStore.dataToText);
                     buttonStart.setText("Start");
+                    totalDistance = 0;
                 }
                 else {
                     startStatus = true;
@@ -280,9 +281,11 @@ public class MainActivity extends BlunoLibrary {
         if(startStatus) {
             totalTime += System.currentTimeMillis() - beforeTime;
             totalDistance += spd / (beforeTime / 1000);
+            Log.d("totalTime", "processSpeed: "+totalTime);
+            Log.d("totalDistance", "processDistance: "+totalDistance);
             gauge.setValue(setMeter(Math.round(spd)));
             CSpeed.setText(dataStore.addKmphToSpeedometer((int)spd));
-            AvgSpeed.setText(dataStore.addKmphToSpeedometer((int)(totalDistance / totalTime)));
+            AvgSpeed.setText(dataStore.addKmphToSpeedometer((int)(totalDistance / (beforeTime / 1000))));
         }
     }
 }

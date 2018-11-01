@@ -277,16 +277,24 @@ public class MainActivity extends BlunoLibrary {
     public void onSerialReceived(String theString) {                            //Once connection data received, this function will be called
         // TODO Auto-generated method stub
         if(startStatus){
-            dataStore.dataToText += theString + '\n';
-            List<String> rawData = Arrays.asList(theString.split("\\s*,\\s*"));
-            for (int i = 0; i < rawData.size(); i++){
-                Log.d("rawData", "onSerialReceived: "+ rawData.get(i));
-            }
-            Yaw.setText(rawData.get(0)+"°");
-            Pitch.setText(rawData.get(1)+"°");
-            Roll.setText(rawData.get(2)+"°");
+            if(!theString.isEmpty()){
+                dataStore.dataToText += theString + '\n';
+                List<String> rawData = Arrays.asList(theString.split("\\s*,\\s*"));
+                if (rawData.size() == 3)
+                {
+                    for (int i = 0; i < rawData.size(); i++){
+                        Log.d("rawData", "onSerialReceived: "+ rawData.get(i));
+                    }
+                    Yaw.setText(rawData.get(0)+"°");
+                    Pitch.setText(rawData.get(1)+"°");
+                    Roll.setText(rawData.get(2)+"°");
 //            double G = Double.parseDouble(rawData.get(0);
 //            GForce.setText(String.valueOf(G));
+                }
+            }
+            else {
+                Log.d("EmptyData", "onSerialReceived: "+ theString);
+            }
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
         Log.d("Serial Received", theString);

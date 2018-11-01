@@ -201,12 +201,15 @@
         <TableRow>
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/yawValue"
                 android:layout_column="1"
                 android:layout_weight="0.33"
+                android:paddingBottom="10dp"
                 android:gravity="center"
                 android:text="0°"
-                android:textSize="@dimen/LayoutContentSize" />
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="1dp"
@@ -218,11 +221,14 @@
 
             <TextView
                 android:id="@+id/pitchValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:layout_weight="0.33"
                 android:gravity="center"
+                android:paddingBottom="10dp"
                 android:text="0°"
-                android:textSize="@dimen/LayoutContentSize" />
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="1dp"
@@ -234,11 +240,14 @@
 
             <TextView
                 android:id="@+id/rollValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_column="5"
+                android:paddingBottom="10dp"
                 android:layout_weight="0.34"
                 android:gravity="center"
                 android:text="0°"
-                android:textSize="@dimen/LayoutContentSize" />
+                android:textSize="15dp" />
         </TableRow>
 
         <View

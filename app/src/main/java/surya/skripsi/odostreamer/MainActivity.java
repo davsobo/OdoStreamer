@@ -278,7 +278,7 @@ public class MainActivity extends BlunoLibrary {
         // TODO Auto-generated method stub
         if(startStatus){
             dataStore.dataToText += theString + '\n';
-            List<String> rawData = Arrays.asList(theString.split(","));
+            List<String> rawData = Arrays.asList(theString.split("\\s*,\\s*"));
             for (int i = 0; i < rawData.size(); i++){
                 Log.d("rawData", "onSerialReceived: "+ rawData.get(i));
             }
@@ -290,7 +290,6 @@ public class MainActivity extends BlunoLibrary {
         }
         Log.d("StartStatus", "onSerialReceived: "+ (startStatus ? "true" : "false"));
         Log.d("Serial Received", theString);
-
     }
 
     public static void processSpeed(double spd) {
